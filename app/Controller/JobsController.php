@@ -53,10 +53,14 @@ public $name = 'Jobs';
    if($this->request->is('post')){
 
            //die("is post");
-
            if(!empty($this->request->data('keywords'))) //$_POST[]
            {
+            $conditions[] = array('OR' => array(
 
+               'Job.title LIKE' => "%" . $this->request->data('keywords') . "%",
+               'Job.description LIKE' => "%" . $this->request->data('keywords') . "%"
+
+                ));
 
            }
      }
