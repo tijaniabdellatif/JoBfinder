@@ -155,4 +155,13 @@ public $name = 'Jobs';
       $this->set('job',$job);
    }
 
+   /**
+    * ADD job
+    */
+
+    public function add(){
+
+      
+    }
+
 }
