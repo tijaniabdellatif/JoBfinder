@@ -161,7 +161,45 @@ public $name = 'Jobs';
 
     public function add(){
 
-      
+      //get categories for select list
+      $options = array(
+
+             'order' => array('Category.name' => 'asc')
+
+      );
+
+      //get categories
+   $categories = $this->Job->Category->find('list',$options);
+
+   //set categories
+   $this->set('categories',$categories);
+
+   //get type for select list
+   $types =$this->Job->Type->find('list');
+
+   //set type 
+   $this->set('types',$types);
+
+      if ($this->request->is('post')) {
+       
+         $this->Job->create();
+         
+         //save logged user id
+         $this->request->data['Job']['user_id'] = 1;
+
+         if($this->Job->save($this->request->data))
+         {
+              //set message 
+
+              $this->Session->setFlash(__('Ton emploi est ajouté'));
+
+              return $this->redirect(array('action' => 'index'));
+
+         }
+
+         $this->Session->setFlash(__("Impossible d'ajouter un emploi "));
+
+      }
     }
 
 }
