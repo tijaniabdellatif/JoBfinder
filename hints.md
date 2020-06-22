@@ -63,3 +63,8 @@ Move the search into the individual views just in index.ctp and browse.ctp
 filter the keyword , the state , the category
 
 ==> single listen on read more : in jobController we will add a view function 
+
+
+## add , Edit and delete jobs :
+
+in the controller folder jobcontroller : 
