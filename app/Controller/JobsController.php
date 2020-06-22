@@ -36,6 +36,9 @@ public $name = 'Jobs';
 
       $categories = $this->Job->Category->find('all', $options);
 
+      //set TITLE
+      $this->set('title_for_layout', 'Mon Emploi | Bienvenue');
+
       $this->set('categories', $categories);
  }
 
@@ -121,6 +124,35 @@ public $name = 'Jobs';
 
       $this->set('categories', $categories);
 
+      $this->set('title_for_layout', 'Mon Emploi | Rechercher un Emploi');
+
   }
+
+
+  /**
+   * 
+   * View single JOB
+   */
+
+   public function view($id){
+
+
+      if(!$id){
+
+         throw new NotFoundException(__('Invalid Job'));
+      }
+
+      $job = $this->Job->findById($id);
+
+      if(!$job){
+
+         throw new NotFoundException(__('Invalid Job'));
+      }
+
+      //set TITLE
+
+      $this->set('title_for_layout',$job['Job']['title']);
+      $this->set('job',$job);
+   }
 
 }

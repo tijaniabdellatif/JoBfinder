@@ -62,4 +62,6 @@ Move the search into the individual views just in index.ctp and browse.ctp
 
 filter the keyword , the state , the category
 
-==> single listen on read more : in jobController we will add a view function 
+==> single listen on read more : in jobController we will add a view function and set the title
+
+==> create the view in job view
