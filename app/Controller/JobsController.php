@@ -65,7 +65,27 @@ public $name = 'Jobs';
            }
      }
 
+     //state filter
+     if(!empty($this->request->data('state')) && $this->request->data('state') != 'Select state'){
 
+              //match state 
+              $conditions[] = array(
+
+                     'Job.state LIKE' => '%'. $this->request->data('state').'%'
+              ); }
+
+      //Category filter
+      if (!empty($this->request->data('category')) && $this->request->data('category') != 'Select category') {
+
+         //match state 
+         $conditions[] = array(
+
+            'Job.category_id LIKE' => '%' . $this->request->data('category') . '%'
+         );
+      }
+
+
+//set category query options
  $options = array(
 
       'order' => array('Category.name' => 'asc')
