@@ -4,7 +4,7 @@
 <head>
     <?php echo $this->Html->charset(); ?>
     <title>
-        Mon Emploi  Bienvenue 
+        <?php echo $title_for_layout; ?>
     </title>
     <?php
     echo $this->Html->meta('icon');
@@ -42,10 +42,12 @@
                 <li <?php echo ($this->here == '/cake/users/login') ? 'class="current"' : '' ?>><a href="<?php echo $this->webroot; ?>users/login"><i class="icon-key"></i> Login</a></li>
             </ul>
         </div>
-    
+
         <div class="col_12 column">
-            <?php  echo $this->Session->flash(); //messages like sucess?>
-           <?php echo $this->fetch('content'); //content in views index.ctp?>
+            <?php echo $this->Session->flash(); //messages like sucess
+            ?>
+            <?php echo $this->fetch('content'); //content in views index.ctp
+            ?>
         </div>
 
         <div class="clearfix"></div>
